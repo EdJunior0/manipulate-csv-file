@@ -67,16 +67,31 @@ char *pesquisarDisciplinaPorCodigo(int cod)
   return name;
 }
 
-void deletarDisciplina(int cod)
+int deletarDisciplina(int cod)
 {
   int verifyDisciplina = verificarDisciplina(cod);
   if (verifyDisciplina)
   {
     delete ("disciplinas.csv", verifyDisciplina);
     printf("Disciplina deletada com sucesso!\n");
+    return 1;
   }
   else
   {
     printf("A disciplina com código %d não existe na base de dados!\n", cod);
+    return 0;
+  }
+}
+
+void atualizarDisciplina(int cod, char name[50], int codProf)
+{
+  if (deletarDisciplina(cod))
+  {
+    cadastrarDisciplina(cod, name, codProf);
+    printf("Disciplina atualizada com sucesso!\n");
+  }
+  else
+  {
+    printf("Não foi possível atualizar a disciplina!\n");
   }
 }

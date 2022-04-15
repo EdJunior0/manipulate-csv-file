@@ -46,17 +46,19 @@ int verificarAluno(int matricula)
   closeFile(file);
 }
 
-void deletarAluno(int matricula)
+int deletarAluno(int matricula)
 {
   int verifyAluno = verificarAluno(matricula);
   if (verifyAluno)
   {
     delete ("alunos.csv", verifyAluno);
     printf("Aluno deletado com sucesso!\n");
+    return 1;
   }
   else
   {
     printf("O aluno com a matrícula %d não existe na base de dados!\n", matricula);
+    return 0;
   }
 }
 
@@ -86,4 +88,18 @@ char *pesquisarAlunoPorMatricula(int matricula)
   printf("O aluno com a matrícula %d não existe na base de dados!\n", matricula);
   closeFile(file);
   return name;
+}
+
+void atualizarAluno(int matricula, char name[50], int codDisciplina)
+{
+  if (deletarAluno(matricula))
+  {
+
+    cadastrarAluno(matricula, name, codDisciplina);
+    printf("Aluno atualizado com sucesso!\n");
+  }
+  else
+  {
+    printf("Não foi possível atualizar o aluno!\n");
+  }
 }

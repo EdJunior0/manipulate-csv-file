@@ -75,16 +75,31 @@ char *pesquisarProfessorPorCodigo(int cod)
   return name;
 }
 
-void deletarProfessor(int cod)
+int deletarProfessor(int cod)
 {
   int verifyProfessor = verificarProfessor(cod);
   if (verifyProfessor)
   {
     delete ("professores.csv", verifyProfessor);
     printf("Professor deletado com sucesso!\n");
+    return 1;
   }
   else
   {
     printf("O professor com código %d não existe na base de dados!\n", cod);
+    return 0;
+  }
+}
+
+void atualizarProfessor(int cod, char name[50], int codDisciplina)
+{
+  if (deletarProfessor(cod))
+  {
+    cadastrarProfessor(cod, name, codDisciplina);
+    printf("Professor atualizado com sucesso!\n");
+  }
+  else
+  {
+    printf("Não foi possível atualizar o Professor!\n");
   }
 }

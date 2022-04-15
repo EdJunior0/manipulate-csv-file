@@ -7,6 +7,8 @@ int verificarProfessor(int);
 
 char *pesquisarProfessorPorCodigo(int);
 
-void deletarProfessor(int);
+int deletarProfessor(int);
+
+void atualizarProfessor(int, char *, int);
 
 #endif

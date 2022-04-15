@@ -5,8 +5,10 @@ void cadastrarAluno(int, char *, int);
 
 int verificarAluno(int);
 
-void deletarAluno(int);
+int deletarAluno(int);
 
 char *pesquisarAlunoPorMatricula(int);
+
+void atualizarAluno(int, char *, int);
 
 #endif

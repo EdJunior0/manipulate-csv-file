@@ -7,6 +7,8 @@ int verificarDisciplina(int);
 
 char *pesquisarDisciplinaPorCodigo(int);
 
-void deletarDisciplina(int);
+int deletarDisciplina(int);
+
+void atualizarDisciplina(int, char *, int);
 
 #endif

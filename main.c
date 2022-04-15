@@ -96,6 +96,48 @@ void delMateria()
 	deletarDisciplina(cod);
 }
 
+void updAluno()
+{
+	char name[50];
+	int codMatricula;
+	int codMateria;
+	printf("Digite o nome do Aluno: \n");
+	scanf("%s", &name);
+	printf("Digite o código da matrícula do aluno: \n");
+	scanf("%d", &codMatricula);
+	printf("Digite o código da matéria do aluno: \n");
+	scanf("%d", &codMateria);
+	atualizarAluno(codMatricula, name, codMateria);
+}
+
+void updDisciplina()
+{
+	char name[50];
+	int cod;
+	int codProf;
+	printf("Digite o nome da disciplina: \n");
+	scanf("%s", &name);
+	printf("Digite o código da disciplina: \n");
+	scanf("%d", &cod);
+	printf("Digite o código do professor da disciplina: \n");
+	scanf("%d", &codProf);
+	atualizarDisciplina(cod, name, codProf);
+}
+
+void updProfessor()
+{
+	char name[50];
+	int cod;
+	int codDisciplina;
+	printf("Digite o nome do Professor: \n");
+	scanf("%s", &name);
+	printf("Digite o código do Professor: \n");
+	scanf("%d", &cod);
+	printf("Digite o código da disciplina do Professor: \n");
+	scanf("%d", &codDisciplina);
+	atualizarProfessor(cod, name, codDisciplina);
+}
+
 int main()
 {
 	char verify[2];
@@ -106,7 +148,8 @@ int main()
 		printf("Você deseja:\n");
 		printf("1 - Cadastrar:\n");
 		printf("2 - Pesquisar:\n");
-		printf("3 - Deletar:\n");
+		printf("3 - Atualizar:\n");
+		printf("4 - Deletar:\n");
 		scanf("%d", &op1);
 		switch (op1)
 		{
@@ -153,6 +196,27 @@ int main()
 			}
 			break;
 		case 3:
+			printf("Você deseja atualizar:\n");
+			printf("1 - Aluno:\n");
+			printf("2 - Professor:\n");
+			printf("3 - Matéria:\n");
+			scanf("%d", &op2);
+			switch (op2)
+			{
+			case 1:
+				updAluno();
+				break;
+			case 2:
+				updProfessor();
+				break;
+			case 3:
+				updDisciplina();
+				break;
+			default:
+				break;
+			}
+			break;
+		case 4:
 			printf("Você deseja deletar:\n");
 			printf("1 - Aluno:\n");
 			printf("2 - Professor:\n");
